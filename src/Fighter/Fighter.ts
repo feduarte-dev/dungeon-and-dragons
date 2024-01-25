@@ -1,18 +1,13 @@
 import Energy from '../Energy';
+import SimpleFighter from './SimpleFighter';
 
-interface Fighter {
-  _lifePoints: number;
-  _strength: number;
-  _defense: number;
-  _energy?: Energy
-
-  attack(enemy: Fighter): void;
+interface Fighter extends SimpleFighter {
+  defense: number;
+  energy?: Energy
 
   special?(enemy: Fighter): void;
 
   levelUp(): void;
-
-  receiveDamage(attackPoints: number): number;
 }
 
 export default Fighter;

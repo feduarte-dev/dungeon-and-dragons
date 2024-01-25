@@ -9,10 +9,10 @@ class Character implements Fighter {
   private _race: Race;
   private _archetype: Archetype;
   private _maxLifePoints: number;
-  _lifePoints: number;
-  _strength: number;
-  _defense: number;
-  _energy?: Energy | undefined;
+  private _lifePoints: number;
+  private _strength: number;
+  private _defense: number;
+  private _energy?: Energy | undefined;
 
   constructor(public name: string) {
     this._dexterity = getRandomInt(1, 10);
@@ -58,7 +58,7 @@ class Character implements Fighter {
       amount: this._energy?.amount,
     };
 
-    return energy;
+    return energy as Energy;
   }
 
   attack(enemy: Fighter): void {
